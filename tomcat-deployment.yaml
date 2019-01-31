@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-pod
+spec:
+  selector:
+   matchLabels:
+     run: tomcat-pod
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: tomcat-pod
+    spec:
+      containers:
+      - name: tomcat
+        image: peteryanush/ita-tomcat-image:1.0
+        ports:
+        - containerPort: 8080
+
